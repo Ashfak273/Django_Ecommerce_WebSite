@@ -1,0 +1,50 @@
+<!-- 26 -->
+{% extends 'shop/layouts/main.html' %}
+
+{% block title %}
+    Collections | ShopKart
+{% endblock title %}
+
+{% block content %}
+    <!-- this dev to put content below navbar otherwise content wil hide behind navbar -->
+    <!-- 28 -->
+     <section class="py-5 text-center container" style="margin-top: 70px;">
+        <div class="row py-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <h1 class="fw-light">Bestsellers</h1>
+                <p class="lead text-muted">Our most popular products based on sales. Updated hourly</p>
+                <p>
+                    <a href="#" class="btn btn-primary my-2">Already a User</a>
+                    <a href="#" class="btn btn-secondary my-2">Register</a>
+                </p>
+            </div>
+        </div>
+     </section>
+
+     <section class="bg-light py-4 my-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h4 class="mb-3">Catagories</h4>
+                    <hr style="border-color: #b8bfc2 ;">
+                </div>
+                
+                <!-- 31 -->
+                {% for item in catagory %}
+                <div class="col-md-4 col-lg-3">
+                    <div class="card my-3" >
+                        <!-- to show image get image url from item -->
+                        <img src="{{ item.image.url}}" class="card-img-top" alt="Catagories" style="height: 170px;">
+                        <!-- 32 -->
+                        <a href="{% url 'product_collections' item.name %}">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary">{{item.name}}</h5>
+                            <p class="card-text">{{item.desciption}}</p>
+                        </div>
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+     </section>
+{% endblock content %}
