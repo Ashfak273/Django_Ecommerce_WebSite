@@ -6,17 +6,45 @@ from . models import *
 from django.contrib import messages
 # Create your views here.
 
+# 48
+from shop.form import CustomUserForm
+
 # 8
 def home(request):
-    return render(request, 'shop/index.html')
+    # 44 filter trendings to show in home 
+    products = Product.objects.filter(trending=1)
+    context = {
+        'products': products
+    }
+    return render(request, 'shop/index.html',context )
+
+# 51
+def login_page(request):
+    return render(request, 'shop/login.html')
 
 # 10
 def register(request):
-    return render(request, 'shop/register.html')
+    # 48
+
+    form = CustomUserForm()
+
+    # 50
+    if request.method=='POST':
+        form = CustomUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request,"Registration Success")
+            return redirect('/login')
+    
+    context = {
+        'form': form
+    }
+
+    return render(request, 'shop/register.html', context)
 
 # 24
 def collections(request):
-    # 27 0 for show , 1 for hide  so filter which is shown
+    # 27 0 for show , 1 for hide  so filter which is shown here 
     catagory=Catagory.objects.filter(status=0)
     context = {
         'catagory': catagory

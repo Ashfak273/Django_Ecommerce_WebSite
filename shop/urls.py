@@ -20,4 +20,7 @@ urlpatterns = [
 
     # 39 
     path('collections/<str:cname>/<str:pname>', Product_details, name='product_details'),
+
+    # 53
+    path('login',login_page, name='login' )
 ]

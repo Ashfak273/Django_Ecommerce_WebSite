@@ -5,6 +5,8 @@ import datetime
 # to access path to store image
 import os
 
+# 46
+from django.contrib.auth.models import User
 
 # funct to check pic name  using current time
 # and change time to a format, chnage name with time

@@ -16,6 +16,64 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <!-- 37 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   
+   <style>
+      /* 20 */
+      .carousel-item img{
+          object-fit: cover;
+          object-position: top;
+          height: 60vh;
+          overflow: hidden;
+      }
+
+      /* for font change */
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+      html {
+          font-size: 14px;
+      }
+      body {
+          font-family: 'Noto Sans', sans-serif;
+      }
+      a {
+          text-decoration: none;
+      }
+
+
+      /* 37 in inde.htm for products */
+
+      .old_price{
+          font-weight: bold;
+          color: red;
+      }
+      .new_price{
+          font-weight: bold;
+          color: white;
+          background-color: green;
+          padding: 2px;
+          border-radius: 5px;
+      }
+
+
+      /* 41 in product details.html */
+      .pic-box{
+          position: relative;
+      }
+      .hot{
+          background-color: orangered;
+          color: white;
+          width: 75px;
+          text-align: center;
+          font-weight: bold;
+          display: inline;
+          border-radius: 5px;
+          padding: 5px;
+          position: absolute;
+          top: 3px;
+          right: 20px;
+          z-index: 10;
+            
+      }
+    </style>
   </head> 
 
 
