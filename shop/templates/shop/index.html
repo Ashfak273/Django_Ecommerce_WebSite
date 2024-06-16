@@ -13,8 +13,29 @@
     <div class="container" style= "margin-top: 70px">
         <div class="row">
             <div class="col-12">
-                <h1>AK</h1>
+                <h4 class="mb-3">Latest Offers</h4>
+                <hr style="border-color: #b8bfc2 ;">
+            </div> 
+            <!-- 45 -->
+            {% for item in products %}
+            <div class="col-md-4 col-lg-3">
+                <div class="card my-3" >
+                    <!-- to show image get image url from item -->
+                    <img src="{{ item.product_image.url }}" class="card-img-top" alt="Catagories" style="height: 180px;">
+                    <!-- catagory is foreign key for prodcut so no need to pass catag here from view  -->
+                    <a href="{% url 'product_details' item.catagory.name item.name %}">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">{{item.name}}</h5>
+                        <p class="card-text">
+                            <span class="float-start mt-1 old_price"><s>Rs.{{item.original_price}}</s></span>
+                            <span class="float-end mb-2 new_price">Rs.{{item.selling_price}}</span>
+                        </p>
+                    
+                    </div>
+                    </a>
+                </div>
             </div>
+            {% endfor %}
         </div>
     </div>
     
