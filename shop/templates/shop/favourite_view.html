@@ -1,0 +1,39 @@
+<!-- 84 -->
+{% extends 'shop/layouts/main.html' %}
+{% block title %}
+  Cart | ShopKart
+{% endblock title %}
+{% block content %}
+  <section class="bg-light py-4 my-5" style="min-height:600px;">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h4 class="mb-3">Favourites  Items</h4>
+          <hr style="border-color:#b8bfc2;">
+        </div>
+      
+        <table class="table table-secondary table-hover">
+            <tr>
+                <th style="text-align:center">Image</th>
+                <th style="text-align:center">Product Name</th>
+                <th style="text-align:center">Unit Price</th>
+                <th style="text-align:center">Remove</th>
+            </tr>
+          
+
+            {% for item in favourits %}
+           <tr>
+                <!-- item has foreign key as product model so get product image -->
+              <td style="text-align:center"><img src="{{item.product.product_image.url}}" height="75px" alt="{{item.product.name}}"></td>
+              <td style="text-align:center">{{item.product.name}}</td>
+              <td style="text-align:center">{{item.product.selling_price | stringformat:'d'}}</td>
+              <td style="text-align:center"><a href="{% url 'remove_fav' item.id %}"  onclick="return confirm('Are you sure? to Remove')"  class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Remove</a></td>
+            </tr>
+            {% endfor %}    
+        </table>
+       
+      </div>
+      </div>
+  </section>
+
+{% endblock content %}
