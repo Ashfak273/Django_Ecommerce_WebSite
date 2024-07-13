@@ -8,7 +8,7 @@
 {% block content %}
     <!-- this dev to put content below navbar otherwise content wil hide behind navbar -->
     <!-- 28 -->
-     <section class="py-5 text-center container" style="margin-top: 70px;">
+     <!-- <section class="py-5 text-center container" style="margin-top: 70px;">
         <div class="row py-lg-5">
             <div class="col-lg-6 col-md-8 mx-auto">
                 <h1 class="fw-light">Bestsellers</h1>
@@ -19,7 +19,9 @@
                 </p>
             </div>
         </div>
-     </section>
+     </section> -->
+
+
 
      <section class="bg-light py-4 my-5">
         <div class="container">
@@ -30,6 +32,12 @@
                     <!-- 54 -->
                     {% include 'shop/inc/message.html' %}
                 </div>
+                <!-- 42 -->
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                    </ol>
+                </nav>
                 
                 <!-- 31 -->
                 {% for item in catagory %}

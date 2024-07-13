@@ -47,3 +47,26 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+    
+# 63 model for add to cart
+class Cart(models.Model):
+    # for user id  , passing User model as para
+    user=models.ForeignKey(User, on_delete=models.CASCADE)
+    # for product which choosed 
+    product=models.ForeignKey(Product, on_delete=models.CASCADE)
+    prouctd_qty=models.IntegerField(null=False, blank=False)
+    # generate time
+    created_at=models.DateTimeField(auto_now_add=True)
+    # now migrate 
+
+    # 71 for total amount
+    @property
+    def total_cost(self):
+        return self.prouctd_qty*self.product.selling_price
+    
+
+# 81
+class Favourite(models.Model):
+    user=models.ForeignKey(User, on_delete=models.CASCADE)
+    product=models.ForeignKey(Product, on_delete=models.CASCADE)
+    created_at=models.DateTimeField(auto_now_add=True)
