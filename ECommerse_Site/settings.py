@@ -85,8 +85,8 @@ DATABASES = {
         'NAME': 'django_task02',
         'HOST': 'localhost',
         'USER': 'root',
-        # 'PASSWORD': '1234',
-        'PASSWORD': '',
+        'PASSWORD': '1234',
+        # 'PASSWORD': '',
         'PORT': '3306',
     }
 }
